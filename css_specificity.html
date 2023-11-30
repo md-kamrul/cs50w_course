@@ -1,0 +1,42 @@
+<!--learning specificity order-->
+
+<!--when the syntex is same then the last one will work. when syntex is not same than comes to the specificity order. the order depends on the score. high score = high priority. score of an id is 100. for class it is 10. for normal syntex it is 1. so id>class>syntex. if syntex .class_name are together then socre score will be 1 + 10 =  11. if syntex #id_name .class_name score will be 1 + 100 + 10 = 111. -->
+<!--if I want to apply a style forcefully by breaking the specificity then I have to use "!important". But it is not recommended. It is not welcomed by all developers.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css_specificity</title>
+
+    <style>
+        p{
+            color: blue;
+        }
+        #new_id p{
+            color: green;
+        }
+        .new_class_again{
+            color: red;
+        }
+        p.new_class_again{
+            color: orange;
+        }
+        #new_id p.new_class_again{
+            color: salmon;
+        }
+        #new_id p{
+            color: blueviolet !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="new_id">
+        <div class="new_class">
+            <p class="new_class_again">css_specificity</p>
+        </div>
+    </div>
+</body>
+</html>
